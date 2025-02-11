@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>jquery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .highlight { border: 3px solid red; }
+    </style>
+</head>
+<body>
+    <h1 id="heading">Original Heading</h1>
+<button id="changeText">Change Text</button></br>
+<p id="para">This is a paragraph.</p>
+<button id="togglePara">Toggle Paragraph</button></body></html></br>
+<img id="myImage" src="C:\Users\Bhargavi Lenka\Pictures\scene1.jpg" width="200">
+<button id="changeImage">Change Image</button></br>
+<a id="myLink" href="https://youtube.com">Click me</a>
+<button id="changeLink">Change Link</button></br>
+<div id="box" style="width: 100px; height: 100px; background: grey;"></div>
+<button id="changeBg">Change Background</button></br>
+<input type="text" id="inputField" value="Hello">
+<button id="getValue">Get Value</button>
+<button id="setValue">Set Value</button></br>  <div id="hoverDiv" style="width: 100px; height: 100px; background: green;"></div></br>
+<div id="animateDiv" style="width: 100px; height: 100px; background: orange; position: relative;"></div>
+<button id="moveDiv">Move</button></br>
+<p id="text">Change my font size!</p>
+<button id="increase">Increase</button>
+<button id="decrease">Decrease</button></br><h2 id="title">Click me!</h2>
+<p id="info">Click this paragraph.</p>
+<button id="btn">Click this button</button>
+<script>
+  $("#changeText").click(function() {
+    $("#heading").text("New Heading Text");
+  });
+  
+  $("#togglePara").click(function() {
+    $("#para").toggle();
+  });
+  $("#changeImage").click(function() {
+    $("#myImage").attr("src", "1.jpg");
+  });
+  $("#changeLink").click(function() {
+    $("#myLink").attr("href", "https://google.com");
+  });
+  
+  $("#changeBg").click(function() {
+    $("#box").css("background", "blue");
+  });
+    $("#getValue").click(function() {
+    alert($("#inputField").val());
+  });
+
+  $("#setValue").click(function() {
+    $("#inputField").val("New Value");
+  });
+
+
+  $("#hoverDiv").hover(
+    function() { $(this).addClass("highlight"); },
+    function() { $(this).removeClass("highlight"); }
+  );
+  
+  $("#moveDiv").click(function() {
+    $("#animateDiv").animate({ left: "200px" }, 10000);
+  });
+
+  $("#increase").click(function() {
+    $("#text").css("font-size", "+=7px");
+  });
+
+  $("#decrease").click(function() {
+    $("#text").css("font-size", "-=7px");
+  });
+  $("h2, p, button").click(function() {
+    alert($(this).text());
+  });
+</script>    
+</body>
+</html>
