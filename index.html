@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography Animated Website</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+            height: 200vh;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .parallax-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-section {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Glowing & Animated Text */
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textWave 3s infinite alternate ease-in-out, glowEffect 2s infinite alternate;
+        }
+
+        .hero-section h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeIn 2s forwards ease-in-out 1.5s;
+        }
+
+        /* Floating Geometric Shapes */
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .circle, .square, .triangle {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.8;
+        }
+
+        .circle {
+            background-color: #ff00ff;
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+        }
+
+        .square {
+            background-color: #00ffff;
+            top: 50%;
+            left: 70%;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 60px solid #ffff00;
+            top: 80%;
+            left: 30%;
+        }
+        .mockup-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .mockup {
+            width: 320px;
+            height: 600px;
+            background: url('https://source.unsplash.com/320x600/?technology,device') no-repeat center center/cover;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateX(10deg);
+            animation: mockupBounce 5s infinite alternate ease-in-out;
+        }
+        /* Animations */
+        @keyframes textWave {
+            0% { letter-spacing: 2px; transform: scale(1); }
+            100% { letter-spacing: 6px; transform: scale(1.05); }
+        }
+
+        @keyframes glowEffect {
+            0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
+            100% { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Ensure text scales properly on smaller screens */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section h2 {
+        font-size: 1.5rem;
+    }
+    .mockup {
+        width: 250px;
+        height: 450px;
+    }
+}
+
+/* Adjust floating shapes for mobile screens */
+@media (max-width: 576px) {
+    .floating-shapes .circle,
+    .floating-shapes .square,
+    .floating-shapes .triangle {
+        width: 40px;
+        height: 40px;
+    }
+}
+/* Background animation - smooth color transitions */
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460); }
+    50% { background: linear-gradient(45deg, #0f3460, #16213e, #1a1a2e); }
+    100% { background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460); }
+}
+body {
+    animation: backgroundAnimation 10s infinite alternate ease-in-out;
+}
+
+/* Parallax effect layers */
+.parallax-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.layer-foreground {
+    background: url('https://source.unsplash.com/1920x1080/?mountains') no-repeat center center/cover;
+    transform: translateY(0);
+}
+
+.layer-midground {
+    background: url('https://source.unsplash.com/1920x1080/?forest') no-repeat center center/cover;
+    transform: translateY(0);
+    opacity: 0.6;
+}
+
+/* Starfield Effect */
+@keyframes starsMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 100vw 100vh; }
+}
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://source.unsplash.com/1920x1080/?stars') repeat;
+    opacity: 0.4;
+    animation: starsMove 30s linear infinite;
+}
+/* Final Slide Section */
+.final-slide {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(45deg, #0f3460, #1a1a2e);
+    color: white;
+    position: relative;
+}
+
+/* Animated Final Text */
+.final-text {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+}
+
+/* Animated Subtitle */
+.final-subtext {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    opacity: 0;
+    color: #FFD700;
+}
+
+/* Final Geometric Elements */
+.final-geometric-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.final-circle, .final-square, .final-triangle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.8;
+    transition: transform 0.3s ease-in-out;
+}
+
+.final-circle {
+    background-color: #ff00ff;
+    border-radius: 50%;
+    top: 10%;
+    left: 15%;
+}
+
+.final-square {
+    background-color: #00ffff;
+    top: 60%;
+    left: 70%;
+}
+
+.final-triangle {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid #ffff00;
+    top: 80%;
+    left: 40%;
+}
+
+/* Hover Effects */
+.final-circle:hover, .final-square:hover, .final-triangle:hover {
+    transform: scale(1.3);
+}
+/* Quote Section - Centered */
+.quote-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+}
+
+/* Styled Quotes */
+.quote-text {
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #FFD700;
+    opacity: 0;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="parallax-container">
+        <div class="parallax-background"></div>
+        <div class="hero-section">
+            <h1 class="animated-text artistic-text">Explore New Things</h1>
+            <h2 class="sub-text">Creative Motion &amp; Style</h2>
+            <div class="floating-shapes">
+                <div class="circle"></div>
+                <div class="square"></div>
+                <div class="triangle"></div>
+                <div class="stars"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="mockup-container">
+        <div class="mockup"></div>
+    </div>
+
+    <div class="floating-shapes">
+        <div class="circle"></div>
+        <div class="square"></div>
+        <div class="triangle"></div>
+    </div>
+</div>
+</div>
+<div class="parallax-container">
+    <div class="parallax-layer stars"></div>
+    <div class="parallax-layer layer-midground"></div>
+    <div class="parallax-layer layer-foreground"></div>
+    <div class="parallax-background"></div>
+
+    <div class="hero-section text-center">
+        <!-- Motivational Quotes Section -->
+        <div class="quote-container">
+            <p class="quote-text">"Creativity is intelligence having fun." <br> – Albert Einstein</p>
+            <p class="quote-text">"Design is thinking made visual." <br> – Saul Bass</p>
+            <p class="quote-text">"Typography is the craft of endowing human language with a durable visual form." <br> – Robert Bringhurst</p>
+        </div>
+
+        <div class="mockup-container">
+            <div class="mockup"></div>
+        </div>
+
+        <div class="floating-shapes">
+            <div class="circle"></div>
+            <div class="square"></div>
+            <div class="triangle"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="final-slide">
+    <h1 class="final-text">The Art of Typography</h1>
+    <p class="final-subtext">Design, Motion & Creativity Combined</p>
+
+    <!-- Interactive Geometric Elements -->
+    <div class="final-geometric-container">
+        <div class="final-circle"></div>
+        <div class="final-square"></div>
+        <div class="final-triangle"></div>
+    </div>
+</div>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Text Animations
+            gsap.from(".animated-text", {
+                opacity: 0,
+                y: -50,
+                duration: 1.5,
+                ease: "bounce"
+            });
+
+            gsap.to(".animated-text", {
+                duration: 2,
+                letterSpacing: "8px",
+                color: "#FFD700",
+                repeat: -1,
+                yoyo: true,
+                ease: "power1.inOut"
+            });
+
+            gsap.to(".sub-text", {
+                duration: 2,
+                opacity: 1,
+                y: 20,
+                delay: 1,
+                ease: "power2.out"
+            });
+
+            // Floating Geometric Shapes Animations
+            gsap.to(".circle", {
+                y: 50,
+                duration: 3,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+
+            gsap.to(".square", {
+                rotation: 360,
+                duration: 6,
+                repeat: -1,
+                ease: "linear"
+            });
+
+            gsap.to(".triangle", {
+                y: -30,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: "power1.inOut"
+            });
+
+            // Parallax Background Animation
+            gsap.to(".parallax-background", {
+                y: "50vh",
+                scale: 1.2,
+                opacity: 0.9,
+                scrollTrigger: {
+                    trigger: ".parallax-container",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+        gsap.to(".mockup", {
+                y: 10,
+                repeat: -1,
+                yoyo: true,
+                duration: 2,
+                ease: "power1.inOut"
+            });
+            document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Smooth Parallax Effect for Layers
+    gsap.to(".layer-foreground", {
+        y: "30vh",
+        scale: 1.1,
+        scrollTrigger: {
+            trigger: ".parallax-container",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        }
+    });
+
+    gsap.to(".layer-midground", {
+        y: "20vh",
+        scale: 1.05,
+        scrollTrigger: {
+            trigger: ".parallax-container",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        }
+    });
+
+    gsap.to(".stars", {
+        y: "50vh",
+        scrollTrigger: {
+            trigger: ".parallax-container",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        }
+    });
+
+    // Dynamic Background Movement
+    gsap.to("body", {
+        backgroundPosition: "50% 100%",
+        scrollTrigger: {
+            trigger: "body",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true
+        }
+    });
+});
+// Animate the final typography section
+gsap.to(".final-text", {
+    opacity: 1,
+    y: -20,
+    duration: 2,
+    delay: 0.5,
+    ease: "power2.out"
+});
+
+gsap.to(".final-subtext", {
+    opacity: 1,
+    y: 20,
+    duration: 2,
+    delay: 1,
+    ease: "power2.out"
+});
+
+// Moving & Rotating Geometric Shapes in Final Slide
+gsap.to(".final-circle", {
+    y: 50,
+    duration: 3,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+});
+
+gsap.to(".final-square", {
+    rotation: 360,
+    duration: 6,
+    repeat: -1,
+    ease: "linear"
+});
+
+gsap.to(".final-triangle", {
+    y: -30,
+    duration: 2,
+    repeat: -1,
+    yoyo: true,
+    ease: "power1.inOut"
+});
+// Animate the centered quote section
+gsap.to(".quote-text", {
+    opacity: 1,
+    y: 0,
+    duration: 2,
+    stagger: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".quote-container",
+        start: "top 60%",
+        end: "top 40%",
+        scrub: true
+    }
+});
+
+    </script>
+</body>
+</html>
